@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HBD Navera!</title>
+  <title>HAPPY BIRTHDAY NAVEERA! ❤️</title>
+  <meta name="viewport" content="width=device-width">
   <style>
-    body,html {margin:0;padding:0;height:100%;font-family:Arial;color:white;text-align:center;overflow:hidden;}
-    .bg {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.7;object-fit:cover;}
-    #bg1 {opacity:0.7;animation:fade 8s infinite;}
-    #bg2 {animation:fade 8s infinite 4s;}
-    @keyframes fade {0%,45%{opacity:0}50%,95%{opacity:0.7}100%{opacity:0}}
-    .heart {width:250px;height:250px;margin:50px auto;background:url('https://drive.google.com/uc?export=view&id=1eOWr2Lp5KaDlQ1GPiIF4O2Nocupt9mng') center/cover;clip-path:path('M10,6 Q10,0 15,0 T20,6 T25,0 T30,6 T35,0 T40,6 T45,0 T50,6 L50,50 Z');filter:drop-shadow(0 0 15px #ff69b4);}
-    .caption {font-size:18px;color:#ff1493;margin-top:20px;font-weight:bold;}
-    .message {position:fixed;bottom:30px;width:100%;}
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      background: #ffcce6;
+    }
+    /* Background images */
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    #bg1 { opacity: 0.7; animation: fade 8s infinite; }
+    #bg2 { animation: fade 8s infinite 4s; }
+    @keyframes fade {
+      0%, 45% { opacity: 0; }
+      50%, 95% { opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+    /* Heart photo */
+    .heart {
+      width: 250px;
+      height: 250px;
+      margin: 30px auto;
+      background: url('https://i.imgur.com/JZG8zMg.jpg') center/cover;
+      clip-path: path('M10,6 Q10,0 15,0 T20,6 T25,0 T30,6 T35,0 T40,6 T45,0 T50,6 L50,50 Z');
+      filter: drop-shadow(0 0 15px #ff1493);
+    }
+    .caption {
+      font-size: 20px;
+      color: #d23369;
+      font-weight: bold;
+      text-shadow: 0 0 5px white;
+    }
+    .message {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      text-shadow: 0 0 5px #ff1493;
+    }
   </style>
 </head>
 <body>
   <!-- Backgrounds -->
-  <img class="bg" id="bg1" src="https://drive.google.com/uc?export=view&id=1slt6ALclHEnqtIrfUth_VBUpjwjsSsey">
-  <img class="bg" id="bg2" src="https://drive.google.com/uc?export=view&id=1lGADEgkEMvHojA-zQCUeV9yCeEj8cvDp">
+  <img class="bg" id="bg1" src="https://i.imgur.com/8BCTtjT.jpg">
+  <img class="bg" id="bg2" src="https://i.imgur.com/Dq56rmI.jpg">
   
   <!-- Heart Photo -->
   <div class="heart"></div>
@@ -24,13 +66,18 @@
   
   <!-- Message -->
   <div class="message">
-    <h1>🎉 Happy Birthday Navera! 💖</h1>
-    <p>You are the best achievement of my life.</p>
-    <p>- Mohsin</p>
+    <h1>🎂 HAPPY BIRTHDAY NAVEERA! 💝</h1>
+    <p>You are the best and most beautiful achievement of my life.</p>
+    <p>With all my love,<br>Mohsin ❤️</p>
   </div>
 
   <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>setTimeout(()=>{confetti({particleCount:99,spread:70})},1500);</script>
+  <script>
+    setTimeout(() => {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      setInterval(() => confetti({ particleCount: 30, spread: 100, origin: { x: Math.random() } }), 3000);
+    }, 1000);
+  </script>
 </body>
 </html>
