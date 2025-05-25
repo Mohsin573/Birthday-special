@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy 18th Birthday Navera!</title>
+  <title>Happy Birthday Navera!</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: Arial;
-      color: white;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #d23369;
       text-align: center;
-      overflow: hidden;
-      background: #ffcce6;
-    }
-    .bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.7;
     }
     .message {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-shadow: 0 0 5px #ff1493;
+      max-width: 80%;
     }
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.5rem;
-      margin: 5px 0;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <!-- Single background image -->
-  <img class="bg" src="https://i.imgur.com/8BCTtjT.jpg">
-  
-  <!-- Simplified message -->
   <div class="message">
-    <h1>🎉 Happy 18th Birthday Navera!</h1>
+    <h1>🎂 Happy 18th Birthday Navera!</h1>
     <p>Wishing you a great year ahead!</p>
   </div>
 
-  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     setTimeout(() => {
-      confetti({ particleCount: 100, spread: 70 });
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
     }, 500);
   </script>
 </body>
