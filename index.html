@@ -2,67 +2,106 @@
 <html>
 <head>
   <title>HAPPY BIRTHDAY NAVEERA! ❤️</title>
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    body, html {
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      height: 100%;
       font-family: Arial;
       color: white;
       text-align: center;
       overflow: hidden;
-      background: #ffcce6;
     }
-    /* Background images */
-    .bg {
+    
+    /* Background container */
+    .bg-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
       z-index: -1;
-      opacity: 0;
-      transition: opacity 1s;
     }
-    #bg1 { opacity: 0.7; animation: fade 8s infinite; }
-    #bg2 { animation: fade 8s infinite 4s; }
+    
+    /* Background images */
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    #bg1 {
+      opacity: 0.7;
+      animation: fade 8s infinite;
+    }
+    
+    #bg2 {
+      animation: fade 8s infinite 4s;
+    }
+    
     @keyframes fade {
       0%, 45% { opacity: 0; }
       50%, 95% { opacity: 0.7; }
       100% { opacity: 0; }
     }
+    
     /* Heart photo */
+    .heart-container {
+      position: relative;
+      width: 100%;
+      margin-top: 30px;
+    }
+    
     .heart {
       width: 250px;
       height: 250px;
-      margin: 30px auto;
-      background: url('https://i.imgur.com/JZG8zMg.jpg') center/cover;
+      margin: 0 auto;
+      background: url('https://i.imgur.com/JZG8zMg.jpg') center/cover no-repeat;
       clip-path: path('M10,6 Q10,0 15,0 T20,6 T25,0 T30,6 T35,0 T40,6 T45,0 T50,6 L50,50 Z');
-      filter: drop-shadow(0 0 15px #ff1493);
+      filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.8));
     }
+    
     .caption {
       font-size: 20px;
-      color: #d23369;
+      color: #ff1493;
       font-weight: bold;
-      text-shadow: 0 0 5px white;
+      margin-top: 15px;
+      text-shadow: 0 0 3px white;
     }
+    
+    /* Message */
     .message {
       position: fixed;
       bottom: 30px;
       width: 100%;
-      text-shadow: 0 0 5px #ff1493;
+      text-shadow: 0 0 5px rgba(255, 20, 147, 0.8);
+    }
+    
+    h1 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <!-- Backgrounds -->
-  <img class="bg" id="bg1" src="https://i.imgur.com/8BCTtjT.jpg">
-  <img class="bg" id="bg2" src="https://i.imgur.com/Dq56rmI.jpg">
+  <!-- Background Container -->
+  <div class="bg-container">
+    <img class="bg" id="bg1" src="https://i.imgur.com/8BCTtjT.jpg" alt="Background 1">
+    <img class="bg" id="bg2" src="https://i.imgur.com/Dq56rmI.jpg" alt="Background 2">
+  </div>
   
   <!-- Heart Photo -->
-  <div class="heart"></div>
-  <div class="caption">My one of the most fav pic of yours</div>
+  <div class="heart-container">
+    <div class="heart"></div>
+    <div class="caption">My one of the most fav pic of yours</div>
+  </div>
   
   <!-- Message -->
   <div class="message">
@@ -74,10 +113,25 @@
   <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    setTimeout(() => {
-      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-      setInterval(() => confetti({ particleCount: 30, spread: 100, origin: { x: Math.random() } }), 3000);
-    }, 1000);
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        // Initial confetti burst
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+        
+        // Ongoing smaller bursts
+        setInterval(function() {
+          confetti({
+            particleCount: 30,
+            spread: 100,
+            origin: { x: Math.random() }
+          });
+        }, 3000);
+      }, 1000);
+    });
   </script>
 </body>
 </html>
