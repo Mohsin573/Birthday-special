@@ -1,92 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For Navera 💖</title>
+  <title>Happy Birthday Navera! 💖</title>
   <style>
     body {
-      font-family: 'Arial', cursive;
-      background: #ffebf3;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
-    }
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
-      max-width: 600px;
-      text-align: center;
       position: relative;
-      z-index: 10;
+      overflow: hidden;
+      color: white;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
     }
-    #message {
-      font-size: 22px;
-      line-height: 1.8;
-      white-space: pre-line;
-      min-height: 300px;
-      color: #d23369;
-    }
-    h1 {
-      color: #ff1493;
-      margin-bottom: 30px;
-    }
-    .heart {
+    
+    /* Background images - fade animation */
+    .bg-img {
       position: absolute;
-      pointer-events: none;
-      animation: float 4s ease-in-out infinite;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 2s;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(10deg); }
+    
+    #bg1 {
+      opacity: 0.7;
+      animation: fade 12s infinite;
+    }
+    
+    #bg2 {
+      animation: fade 12s infinite 6s;
+    }
+    
+    @keyframes fade {
+      0%, 45% { opacity: 0; }
+      50%, 95% { opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+    
+    /* Heart-shaped photo */
+    .heart-photo {
+      width: 300px;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      filter: drop-shadow(0 0 20px rgba(255,105,180,0.8));
+    }
+    
+    .heart-photo::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      clip-path: polygon(
+        50% 15%, 61% 15%, 75% 25%, 85% 40%, 
+        90% 60%, 75% 80%, 50% 95%, 
+        25% 80%, 10% 60%, 15% 40%, 25% 25%, 39% 15%
+      );
+    }
+    
+    .heart-caption {
+      margin-top: 320px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff1493;
+      text-align: center;
+      text-shadow: none;
+    }
+    
+    .message {
+      position: absolute;
+      bottom: 50px;
+      text-align: center;
+      max-width: 80%;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <!-- Background Images -->
+  <img id="bg1" class="bg-img" src="https://drive.google.com/uc?export=view&id=1slt6ALclHEnqtIrfUth_VBUpjwjsSsey">
+  <img id="bg2" class="bg-img" src="https://drive.google.com/uc?export=view&id=1lGADEgkEMvHojA-zQCUeV9yCeEj8cvDp">
+
+  <!-- Heart-shaped Photo -->
+  <div class="heart-photo" style="background-image: url('https://drive.google.com/uc?export=view&id=1eOWr2Lp5KaDlQ1GPiIF4O2Nocupt9mng')"></div>
+  <p class="heart-caption">My one of the most fav pic of yours</p>
+
+  <!-- Your Message -->
+  <div class="message">
     <h1>🎂 Happy Birthday, Navera! 💝</h1>
-    <div id="message"></div>
+    <p>Hey Navera, 🎉</p>
+    <p>You are the best and most beautiful achievement of my life.</p>
+    <p>With lots of love,<br>Mohsin 💖</p>
   </div>
 
+  <!-- Confetti Effect -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    const message = `Hey Navera, 🎉\n\nYou are the best and most beautiful achievement of my life.\n\nWith lots of love,\nMohsin 💖`;
-    let i = 0;
-    
-    function typeWriter() {
-      if (i < message.length) {
-        document.getElementById("message").innerHTML += message.charAt(i);
-        i++;
-        setTimeout(typeWriter, 50);
-      } else {
-        // Confetti explosion!
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
-        createHearts();
-      }
-    }
-    
-    function createHearts() {
-      const colors = ['#ff1493', '#ff69b4', '#ff85a2', '#fbb1bd'];
-      for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.innerHTML = '❤️';
-        heart.className = 'heart';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.top = Math.random() * 100 + 'vh';
-        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-        heart.style.animationDelay = Math.random() * 5 + 's';
-        document.body.appendChild(heart);
-      }
-    }
-    
-    window.onload = typeWriter;
+    setTimeout(() => {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }, 2000);
   </script>
 </body>
 </html>
