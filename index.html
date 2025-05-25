@@ -1,115 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday Navera! 💖</title>
+  <title>HBD Navera!</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      color: white;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    }
-    
-    /* Background images - fade animation */
-    .bg-img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 2s;
-    }
-    
-    #bg1 {
-      opacity: 0.7;
-      animation: fade 12s infinite;
-    }
-    
-    #bg2 {
-      animation: fade 12s infinite 6s;
-    }
-    
-    @keyframes fade {
-      0%, 45% { opacity: 0; }
-      50%, 95% { opacity: 0.7; }
-      100% { opacity: 0; }
-    }
-    
-    /* Heart-shaped photo */
-    .heart-photo {
-      width: 300px;
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      filter: drop-shadow(0 0 20px rgba(255,105,180,0.8));
-    }
-    
-    .heart-photo::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      clip-path: polygon(
-        50% 15%, 61% 15%, 75% 25%, 85% 40%, 
-        90% 60%, 75% 80%, 50% 95%, 
-        25% 80%, 10% 60%, 15% 40%, 25% 25%, 39% 15%
-      );
-    }
-    
-    .heart-caption {
-      margin-top: 320px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #ff1493;
-      text-align: center;
-      text-shadow: none;
-    }
-    
-    .message {
-      position: absolute;
-      bottom: 50px;
-      text-align: center;
-      max-width: 80%;
-    }
+    body,html {margin:0;padding:0;height:100%;font-family:Arial;color:white;text-align:center;overflow:hidden;}
+    .bg {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.7;object-fit:cover;}
+    #bg1 {opacity:0.7;animation:fade 8s infinite;}
+    #bg2 {animation:fade 8s infinite 4s;}
+    @keyframes fade {0%,45%{opacity:0}50%,95%{opacity:0.7}100%{opacity:0}}
+    .heart {width:250px;height:250px;margin:50px auto;background:url('https://drive.google.com/uc?export=view&id=1eOWr2Lp5KaDlQ1GPiIF4O2Nocupt9mng') center/cover;clip-path:path('M10,6 Q10,0 15,0 T20,6 T25,0 T30,6 T35,0 T40,6 T45,0 T50,6 L50,50 Z');filter:drop-shadow(0 0 15px #ff69b4);}
+    .caption {font-size:18px;color:#ff1493;margin-top:20px;font-weight:bold;}
+    .message {position:fixed;bottom:30px;width:100%;}
   </style>
 </head>
 <body>
-  <!-- Background Images -->
-  <img id="bg1" class="bg-img" src="https://drive.google.com/uc?export=view&id=1slt6ALclHEnqtIrfUth_VBUpjwjsSsey">
-  <img id="bg2" class="bg-img" src="https://drive.google.com/uc?export=view&id=1lGADEgkEMvHojA-zQCUeV9yCeEj8cvDp">
-
-  <!-- Heart-shaped Photo -->
-  <div class="heart-photo" style="background-image: url('https://drive.google.com/uc?export=view&id=1eOWr2Lp5KaDlQ1GPiIF4O2Nocupt9mng')"></div>
-  <p class="heart-caption">My one of the most fav pic of yours</p>
-
-  <!-- Your Message -->
+  <!-- Backgrounds -->
+  <img class="bg" id="bg1" src="https://drive.google.com/uc?export=view&id=1slt6ALclHEnqtIrfUth_VBUpjwjsSsey">
+  <img class="bg" id="bg2" src="https://drive.google.com/uc?export=view&id=1lGADEgkEMvHojA-zQCUeV9yCeEj8cvDp">
+  
+  <!-- Heart Photo -->
+  <div class="heart"></div>
+  <div class="caption">My one of the most fav pic of yours</div>
+  
+  <!-- Message -->
   <div class="message">
-    <h1>🎂 Happy Birthday, Navera! 💝</h1>
-    <p>Hey Navera, 🎉</p>
-    <p>You are the best and most beautiful achievement of my life.</p>
-    <p>With lots of love,<br>Mohsin 💖</p>
+    <h1>🎉 Happy Birthday Navera! 💖</h1>
+    <p>You are the best achievement of my life.</p>
+    <p>- Mohsin</p>
   </div>
 
-  <!-- Confetti Effect -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    setTimeout(() => {
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    }, 2000);
-  </script>
+  <script>setTimeout(()=>{confetti({particleCount:99,spread:70})},1500);</script>
 </body>
 </html>
