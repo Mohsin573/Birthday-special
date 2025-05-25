@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Navera 💖</title>
+  <style>
+    body {
+      font-family: 'Arial', cursive;
+      background: #ffebf3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    #message {
+      font-size: 22px;
+      line-height: 1.8;
+      white-space: pre-line;
+      min-height: 300px;
+      color: #d23369;
+    }
+    h1 {
+      color: #ff1493;
+      margin-bottom: 30px;
+    }
+    .heart {
+      position: absolute;
+      pointer-events: none;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎂 Happy Birthday, Navera! 💝</h1>
+    <div id="message"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const message = `Hey Navera, 🎉\n\nYou are the best and most beautiful achievement of my life.\n\nWith lots of love,\nMohsin 💖`;
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("message").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      } else {
+        // Confetti explosion!
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+        createHearts();
+      }
+    }
+    
+    function createHearts() {
+      const colors = ['#ff1493', '#ff69b4', '#ff85a2', '#fbb1bd'];
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(heart);
+      }
+    }
+    
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
